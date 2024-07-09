@@ -25,3 +25,18 @@ function solve(arr,n){
 }
 
 // or
+
+function solve(arr,n){
+  let found = new Set()
+  arr = arr.map((x, i) => [x, i])
+  for(let i = 0; i < arr.length; i++){
+    let left = Math.max(0, i - n)
+    let right = Math.min(arr.length - 1, i + n)
+    if(arr[i][0] == "D"){
+      let n = arr.slice(left, right + 1).find(x => x[0] == "C" && !found.has(x[1]))
+      if(n)
+        found.add(n[1])
+    }
+  }
+  return found.size
+}
