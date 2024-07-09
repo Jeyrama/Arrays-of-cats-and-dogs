@@ -23,3 +23,5 @@ function solve(arr,n){
     return acc
   }, 0)
 }
+
+// or
