@@ -14,3 +14,12 @@ Do not modify the input array.
 
 
 // Solution
+
+function solve(arr,n){  
+  return arr.reduce( (acc,curr,index) => {
+    if(curr == 'D') 
+    for(let i = index-n; i <= index+n; i++) 
+      if(arr[i] == 'C') { arr[i]=0; return ++acc }
+    return acc
+  }, 0)
+}
